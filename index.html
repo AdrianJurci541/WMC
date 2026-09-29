@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Die persönliche Seite von Adrian Jurci, Schüler der HTL Spengergasse.">
+    <title>Über mich | Adrian Jurci</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #17212b;
+        --muted: #52606d;
+        --paper: #f5f7f3;
+        --card: #ffffff;
+        --green: #176b55;
+        --green-dark: #104d3e;
+        --lime: #d7f16b;
+        --line: #dce4dc;
+        --shadow: 0 24px 70px rgb(23 33 43 / 9%);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-width: 320px;
+        margin: 0;
+        background:
+          radial-gradient(ellipse at 90% 0%, rgb(215 241 107 / 27%), transparent 32rem),
+          var(--paper);
+        color: var(--ink);
+        font-family: "Segoe UI", Arial, sans-serif;
+        line-height: 1.65;
+      }
+
+      a {
+        color: var(--green-dark);
+      }
+
+      a:focus-visible {
+        outline: 3px solid var(--green);
+        outline-offset: 4px;
+      }
+
+      .site-header,
+      main,
+      .site-footer {
+        width: min(1080px, calc(100% - 40px));
+        margin-inline: auto;
+      }
+
+      .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding-block: 28px;
+      }
+
+      .wordmark {
+        color: var(--ink);
+        font-size: 1rem;
+        font-weight: 750;
+        letter-spacing: -0.03em;
+        text-decoration: none;
+      }
+
+      .wordmark span {
+        color: var(--green);
+      }
+
+      nav ul {
+        display: flex;
+        gap: 28px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      nav a {
+        color: var(--muted);
+        font-size: 0.93rem;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      nav a:hover {
+        color: var(--green-dark);
+      }
+
+      main {
+        padding-block: 42px 88px;
+      }
+
+      .intro {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(250px, 0.65fr);
+        align-items: center;
+        gap: clamp(36px, 8vw, 100px);
+        overflow: hidden;
+        padding: clamp(32px, 7vw, 78px);
+        border: 1px solid rgb(255 255 255 / 72%);
+        border-radius: 28px;
+        background: linear-gradient(135deg, #fff 8%, #f1f7ed 100%);
+        box-shadow: var(--shadow);
+      }
+
+      .intro::after {
+        position: absolute;
+        right: -78px;
+        bottom: -150px;
+        width: 310px;
+        height: 310px;
+        border: 1px solid rgb(23 107 85 / 12%);
+        border-radius: 50%;
+        content: "";
+        pointer-events: none;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--green);
+        font-size: 0.77rem;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 12ch;
+        margin-bottom: 20px;
+        font-size: clamp(2.6rem, 6vw, 5rem);
+        font-weight: 750;
+        letter-spacing: -0.065em;
+        line-height: 1.02;
+      }
+
+      h1 span {
+        color: var(--green);
+      }
+
+      .lead {
+        max-width: 54ch;
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: clamp(1.02rem, 2vw, 1.18rem);
+      }
+
+      .portrait-wrap {
+        position: relative;
+        z-index: 1;
+        width: min(100%, 280px);
+        aspect-ratio: 1;
+        justify-self: center;
+        overflow: hidden;
+        padding: 13px;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        background: rgb(255 255 255 / 75%);
+        box-shadow: 0 18px 42px rgb(23 33 43 / 12%);
+        transform: rotate(3deg);
+      }
+
+      .portrait-wrap img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .content-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(250px, 0.62fr);
+        gap: 24px;
+        margin-top: 24px;
+      }
+
+      article,
+      aside {
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: var(--card);
+        box-shadow: 0 12px 38px rgb(23 33 43 / 5%);
+      }
+
+      article {
+        padding: clamp(26px, 5vw, 44px);
+      }
+
+      aside {
+        align-self: start;
+        padding: 30px;
+      }
+
+      h2 {
+        margin-bottom: 14px;
+        font-size: 1.45rem;
+        letter-spacing: -0.035em;
+        line-height: 1.2;
+      }
+
+      article p {
+        max-width: 62ch;
+        margin-bottom: 16px;
+        color: var(--muted);
+      }
+
+      article p:last-of-type {
+        margin-bottom: 0;
+      }
+
+      .facts {
+        display: grid;
+        gap: 18px;
+        margin: 22px 0 0;
+      }
+
+      .facts div {
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .facts div:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+
+      .facts dt {
+        margin-bottom: 3px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .facts dd {
+        margin: 0;
+        font-weight: 650;
+      }
+
+      .site-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding-block: 22px 34px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      .site-footer p {
+        margin: 0;
+      }
+
+      @media (max-width: 720px) {
+        .site-header {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 14px;
+        }
+
+        nav ul {
+          flex-wrap: wrap;
+          gap: 12px 22px;
+        }
+
+        main {
+          padding-top: 22px;
+        }
+
+        .intro,
+        .content-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .intro {
+          gap: 30px;
+        }
+
+        .portrait-wrap {
+          width: min(58vw, 230px);
+        }
+
+        .site-footer {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 6px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="#start" aria-label="Adrian Jurci – zur Startseite">AJ<span>.</span></a>
+      <nav aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="#ueber-mich">Über mich</a></li>
+          <li><a href="#steckbrief">Steckbrief</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="start">
+      <section class="intro" aria-labelledby="seitentitel">
+        <div>
+          <p class="eyebrow">Hallo, ich bin</p>
+          <h1 id="seitentitel">Adrian <span>Jurci.</span></h1>
+          <p class="lead">Schüler an der HTL Spengergasse in der Klasse 3CAIF. Hier stelle ich mich und meinen Ausbildungsbereich kurz vor.</p>
+        </div>
+        <div class="portrait-wrap">
+          <img src="profilfoto.jpeg" alt="Porträtfoto von Adrian Jurci">
+        </div>
+      </section>
+
+      <div class="content-grid">
+        <article id="ueber-mich" aria-labelledby="ueber-mich-titel">
+          <p class="eyebrow">Ein kurzer Einblick</p>
+          <h2 id="ueber-mich-titel">Über mich</h2>
+          <p>Ich bin Adrian Jurci und besuche die HTL Spengergasse. In der Klasse 3CAIF beschäftige ich mich mit Web Programming and Mobile Computing.</p>
+        </article>
+
+        <aside id="steckbrief" aria-labelledby="steckbrief-titel">
+          <p class="eyebrow">Auf einen Blick</p>
+          <h2 id="steckbrief-titel">Steckbrief</h2>
+          <dl class="facts">
+            <div>
+              <dt>Name</dt>
+              <dd>Adrian Jurci</dd>
+            </div>
+            <div>
+              <dt>Schule</dt>
+              <dd>HTL Spengergasse</dd>
+            </div>
+            <div>
+              <dt>Klasse</dt>
+              <dd>3CAIF</dd>
+            </div>
+            <div>
+              <dt>Fachbereich</dt>
+              <dd>Web Programming and Mobile Computing</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>Adrian Jurci · HTL Spengergasse</p>
+      <p>Eine persönliche Seite mit HTML-Grundlagen</p>
+    </footer>
+  </body>
+</html>
